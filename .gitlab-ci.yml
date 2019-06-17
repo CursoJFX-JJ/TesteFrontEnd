@@ -1,0 +1,27 @@
+cache:
+  paths:
+    - node_modules/
+
+deploy:
+  image: nikolaik/python-nodejs:latest
+  script:
+    - npm install -g @angular/cli
+    - npm install
+    - ng build --prod --aot
+    - pip install awscli
+    - cd dist/
+    - ls
+    - aws s3 cp ./ s3://br.com.telmaxsecurity/ --recursive --include "*."
+  only:
+    - master
+  
+pages:
+  image: alpine:latest
+  script:
+    - mkdir -p ./public
+    - cp ./*.html ./public/
+  artifacts:
+    paths:
+      - public
+  except:
+    - master

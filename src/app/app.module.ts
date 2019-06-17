@@ -14,6 +14,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
+import { TreinamentosComponent } from './treinamentos/treinamentos.component';
+import { ContatoComponent } from './contato/contato.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HomeModule } from './home/home.module';
     LandingComponent,
     ProfileComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    TreinamentosComponent,
+    ContatoComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,

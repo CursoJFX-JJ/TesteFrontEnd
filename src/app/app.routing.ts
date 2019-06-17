@@ -8,9 +8,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { ContatoComponent } from './contato/contato.component';
+import { TreinamentosComponent } from './treinamentos/treinamentos.component';
+import { SobreComponent } from './sobre/sobre.component';
 
-const routes: Routes =[
+const routes: Routes = [
     { path: 'home',             component: HomeComponent },
+    { path: 'contato',          component: ContatoComponent },
+    { path: 'treinamentos',     component: TreinamentosComponent },
+    { path: 'sobre',            component: SobreComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },

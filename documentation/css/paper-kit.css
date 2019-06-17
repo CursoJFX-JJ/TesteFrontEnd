@@ -2034,7 +2034,7 @@ textarea.form-control {
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
   padding: 0;
-  background: #FFFFFF;
+  background: #39E84E;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 }
 .navbar .navbar-brand {
@@ -3604,7 +3604,7 @@ textarea.form-control {
   top: 36%;
   left: 44%;
   font-size: 65px;
-  color: #f5593d;
+  color: #65C46D;
   padding: 1px;
 }
 .section-nucleo-icons .icons-container i:nth-child(7) {
