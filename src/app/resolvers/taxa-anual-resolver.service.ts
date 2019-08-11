@@ -14,7 +14,7 @@ export class TaxaAnualResolverService implements Resolve<any[]>{
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any[]> |
     Observable<never> {
     const ano = route.paramMap.get('ano');
-    console.log(ano)
+    console.log(ano);
     return this.selic.calculoMediaAno(ano).pipe(
       take(1), mergeMap(calculo => {
         if (calculo) {

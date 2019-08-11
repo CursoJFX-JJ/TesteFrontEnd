@@ -42,17 +42,15 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Mês de referência</th>
                   <th scope="col">Ano de referência</th>
-                  <th scope="col">Taxa Selic</th>
+                  <th scope="col">Média</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let taxa of taxas; let i = index">
                   <th scope="row">{{i+1}}</th>
-                  <td>{{taxa.mes}}}</td>
                   <td>{{taxa.ano}}}</td>
-                  <td>{{taxa.taxa}}</td>
+                  <td>{{taxa.media}}</td>
                 </tr>
               </tbody>
             </table>
