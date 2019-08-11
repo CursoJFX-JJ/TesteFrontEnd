@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
@@ -14,21 +13,18 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
-import { TreinamentosComponent } from './treinamentos/treinamentos.component';
-import { ContatoComponent } from './contato/contato.component';
-import { SobreComponent } from './sobre/sobre.component';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { TaxaAnualComponent } from './taxa-anual/taxa-anual.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
     LandingComponent,
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    TreinamentosComponent,
-    ContatoComponent,
-    SobreComponent
+    TaxaAnualComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +32,8 @@ import { SobreComponent } from './sobre/sobre.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

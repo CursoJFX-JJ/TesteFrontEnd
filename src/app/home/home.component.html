@@ -1,157 +1,68 @@
 <div class="wrapper">
-    <div class="page-header section-dark" style="background-image: url('assets/img/image1.jpg')">
+    <div class="page-header section-dark" style="background-image: url('assets/img/back.png')">
         <div class="filter"></div>
         <div class="content-center">
             <div class="container">
                 <div class="motto text-center">
-                    <h1>Título 1</h1>
-                    <h3>Subtitulo 1</h3>
+                    <h1>Estimativa Selic</h1>
+                    <h3>A ANBIMA está iniciando um novo projeto em que pretende disponibilizar ao mercado uma API para consultar os cálculos de estimativa Selic. Para o público interno o projeto prevê a consulta dessas mesmas informações em sistema. </h3>
                     <br />
-                    <a class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Botão 1.1</a>
-                    <button type="button" class="btn btn-outline-neutral btn-round">Botão 1.2</button>
+                    <a class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Começar</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="main">
-            <div class="section section-dark section-nucleo-icons">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <h2 class="title">Soluções para todos os setores</h2><br />
-                            <p class="description">
-                                Temos tecnologias para abrangir todos os setores. Além de técnicos qualificados
-                                 e consultores para ajudá-lo na escolha da melhor solução para seu projeto!
-                                  Venha e confira!
-                            </p><br />
-                            <a [routerLink]="['/orcamento']" class="btn btn-success btn-round">Solicitar orçamento</a>
-                            <a [routerLink]="['/contato']" class="btn btn-outline-success btn-round"
-                                target="_blank">Contato</a>
-                        </div>
-
-                        <div class="col-lg-6 col-md-12">
-                            <div class="icons-container">
-                                <i class="nc-icon nc-time-alarm"></i>
-                                <i class="nc-icon nc-atom"></i>
-                                <i class="nc-icon nc-camera-compact"></i>
-                                <i class="nc-icon nc-watch-time"></i>
-                                <i class="nc-icon nc-key-25"></i>
-                                <i class="nc-icon nc-diamond"></i>
-                                <i class="nc-icon nc-user-run"></i>
-                                <i class="nc-icon nc-layout-11"></i>
-                                <i class="nc-icon nc-badge"></i>
-                                <i class="nc-icon nc-bulb-63"></i>
-                                <i class="nc-icon nc-favourite-28"></i>
-                                <i class="nc-icon nc-planet"></i>
-                                <i class="nc-icon nc-tie-bow"></i>
-                                <i class="nc-icon nc-zoom-split"></i>
-                                <i class="nc-icon nc-cloud-download-93"></i>
-                            </div>
-                        </div>
+        <div class="section text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mr-auto ml-auto">
+                        <h2 class="title">Como funciona</h2>
+                        <h5 class="description">Selecione um ano para consulta, o mês é opcional.</h5>
+                        <br>
                     </div>
                 </div>
-            </div>
-            <div class="section section-dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 ml-auto mr-auto text-center">
-                            <h2 class="title">Confira nossos produtos</h2>
-                            <p class="description">Disponibilizamos dos mais variados produtos no mercado, para todas as categorias de negócios.
-                                A fim de obter melhores índices de resultados, trabalhamos em parceria do cliente, sempre disponibilizando
-                                os mais atuais equipamentos de segurança e telecomunicações.
-                            </p>
-                            <button class="btn btn-light btn-block btn-success">Conferir</button>
+                <div class="row">
+                    <div class="col-md-10 mr-auto ml-auto">
+                        <form class="form-inline" [formGroup]="selicForm" (ngSubmit)="buscar()">
+                            <label class="my-1 mr-2" for="ano">Ano</label>
+                            <select class="custom-select my-1 mr-sm-2" id="ano" formControlName="anosControl">
+                                <option *ngFor="let ano of anos" [value]="ano">{{ano}}</option>
+                            </select>
 
-                        </div>
+                            <label class="my-1 mr-2" for="mes">Mês</label>
+                            <select class="custom-select my-1 mr-sm-2" id="mes" formControlName="mesesControl">
+                                <option *ngFor="let mes of meses" [value]="mes.nome">{{mes.nome}}</option>
+                            </select>
+
+                            <button type="submit" class="btn btn-primary my-1" [disabled]="!selicForm.valid">Buscar</button>
+                            <button type="submit" class="btn btn-primary my-1" (click)="buscar()">Taxa anual</button>
+                        </form>
                     </div>
                 </div>
-            </div>
-            <div class="section section-image section-login"
-                style="background-image: url('assets/img/image2.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
-                            <div class="card card-register">
-                                <h3 class="title">Bem vindo</h3>
-                                <div class="social-line text-center">
-                                    <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-neutral btn-linkedin btn-just-icon">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </div>
-                                <form class="register-form">
-                                    <label>Email</label>
-                                    <div class="input-group form-group-no-border"
-                                        [ngClass]="{'input-group-focus':focus===true}">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="nc-icon nc-email-85"></i>
-                                            </span>
-                                        </div>
-
-                                        <input type="text" class="form-control" placeholder="Email" (focus)="focus=true"
-                                            (blur)="focus=false">
-                                    </div>
-
-                                    <label>Senha</label>
-                                    <div class="input-group form-group-no-border"
-                                        [ngClass]="{'input-group-focus':focus1===true}">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="nc-icon nc-key-25"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Senha"
-                                            (focus)="focus1=true" (blur)="focus1=false">
-                                    </div>
-                                    <button class="btn btn-light btn-block btn-round">Registrar</button>
-                                </form>
-                                <div class="forgot">
-                                    <a href="#" class="btn btn-link btn-debug">Esqueceu sua senha?</a>
-                                </div>
-                            </div>
-                        </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Data de referência</th>
+                                    <th scope="col">Taxa Selic</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let taxa of taxas; let i = index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{taxa.referencia}}}</td>
+                                    <td>{{taxa.taxa}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-            <div class="section">
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col-md-8 ml-auto mr-auto text-center">
-                            <h2 class="title">Gostou do que viu?</h2>
-                            <p class="description">Gostamos de manter contato com nossos clientes, e para isso disponibilizamos
-                                de um formulário para você nos avaliar e um blog para acompanhar nossas novidades.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 download-area ml-auto mr-auto">
-                            <a href=""
-                                class="btn btn-warning btn-round">Deixe seu feedback</a>
-                            <a href=""
-                                class="btn btn-danger btn-round">Acompanhe nosso blog</a>
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center sharing-area text-center">
-                        <div class="text-center col-md-12 col-lg-8">
-                            <h3>Obrigado pela visita!</h3>
-                        </div>
-                        <div class="text-center col-md-12 col-lg-8">
-                            <a href="#pablo" class="btn btn-google-bg google-bg twitter-sharrre btn-round" rel="tooltip"
-                                title="Tweet!">
-                                <i class="fa fa-instagram"></i> Instagram
-                            </a>
-                            <a href="#pablo" class="btn btn-facebook-bg facebook-sharrre btn-round" rel="tooltip"
-                                title="Share!">
-                                <i class="fa fa-facebook-square"></i> Facebook
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
+
     </div>

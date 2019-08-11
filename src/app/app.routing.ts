@@ -5,20 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
-import { ContatoComponent } from './contato/contato.component';
-import { TreinamentosComponent } from './treinamentos/treinamentos.component';
-import { SobreComponent } from './sobre/sobre.component';
+import { TaxaAnualComponent } from './taxa-anual/taxa-anual.component';
 
 const routes: Routes = [
     { path: 'home',             component: HomeComponent },
-    { path: 'contato',          component: ContatoComponent },
-    { path: 'treinamentos',     component: TreinamentosComponent },
-    { path: 'sobre',            component: SobreComponent },
+    { path: 'taxaAno',             component: TaxaAnualComponent },
     { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }

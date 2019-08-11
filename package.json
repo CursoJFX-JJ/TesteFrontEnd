@@ -1,15 +1,12 @@
 {
-  "name": "paper-kit-2-angular",
+  "name": "simplic",
   "version": "1.2.0",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/creativetimofficial/pk2-angular.git"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "firebase use default && ng build --prod --output-hashing=all && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -20,14 +17,16 @@
     "@angular/common": "7.2.0",
     "@angular/compiler": "7.2.0",
     "@angular/core": "7.2.0",
+    "@angular/fire": "^5.2.1",
     "@angular/forms": "7.2.0",
     "@angular/http": "7.2.0",
     "@angular/platform-browser": "7.2.0",
     "@angular/platform-browser-dynamic": "7.2.0",
     "@angular/router": "7.2.0",
-    "@ng-bootstrap/ng-bootstrap": "^2.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "bootstrap": "^4.3.1",
     "core-js": "2.4.1",
+    "firebase": "^6.2.0",
     "jquery": "^3.4.1",
     "jw-bootstrap-switch-ng2": "2.0.1",
     "ng2-nouislider": "1.7.12",
@@ -35,6 +34,7 @@
     "popper.js": "1.14.4",
     "rxjs": "6.2.2",
     "rxjs-compat": "6.2.2",
+    "uri-js": "^4.2.2",
     "zone.js": "0.8.26"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
@@ -14,11 +14,12 @@ import { ComponentsModule } from '../components/components.module';
         CommonModule,
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule,
         ComponentsModule
     ],
     declarations: [ HomeComponent ],
-    exports:[ HomeComponent ],
+    exports: [ HomeComponent ],
     providers: []
 })
 export class HomeModule { }
