@@ -1,3 +1,64 @@
-<p>
-  taxa-anual works!
-</p>
+<div class="wrapper">
+  <div class="page-header section-dark" style="background-image: url('assets/img/back.png')">
+    <div class="filter"></div>
+    <div class="content-center">
+      <div class="container">
+        <div class="motto text-center">
+          <h1>Estimativa Selic</h1>
+          <h3>A ANBIMA está iniciando um novo projeto em que pretende disponibilizar ao mercado uma API para
+            consultar os cálculos de estimativa Selic. Para o público interno o projeto prevê a consulta
+            dessas mesmas informações em sistema. </h3>
+          <br />
+          <a class="btn btn-outline-neutral btn-round" href="#main"><i class="fa fa-play"></i>Começar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="section text-center">
+      <div class="container" id="main">
+        <div class="row">
+          <div class="col-md-8 mr-auto ml-auto">
+            <h2 class="title">Como funciona</h2>
+            <h5 class="description">Selecione um ano para consulta, o mês é opcional.</h5>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 mr-auto ml-auto">
+            <form class="form-inline" [formGroup]="selicForm" (ngSubmit)="buscar()">
+              <label class="my-1 mr-2" for="ano">Ano</label>
+              <select class="custom-select my-1 mr-sm-2" id="ano" formControlName="anosControl">
+                <option *ngFor="let ano of anos" [value]="ano">{{ano}}</option>
+              </select>
+              <button type="submit" class="btn btn-primary my-1" [disabled]="!selicForm.valid">Buscar</button>
+            </form>
+          </div>
+        </div>
+        <br /><br />
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-hover" *ngIf="taxas">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Mês de referência</th>
+                  <th scope="col">Ano de referência</th>
+                  <th scope="col">Taxa Selic</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let taxa of taxas; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{taxa.mes}}}</td>
+                  <td>{{taxa.ano}}}</td>
+                  <td>{{taxa.taxa}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

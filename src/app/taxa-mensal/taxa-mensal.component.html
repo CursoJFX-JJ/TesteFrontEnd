@@ -1,0 +1,58 @@
+<div class="section text-center">
+  <div class="container" id="main">
+      <div class="row">
+          <div class="col-md-8 mr-auto ml-auto">
+              <h2 class="title">Como funciona</h2>
+              <h5 class="description">Selecione um ano para consulta, o mês é opcional.</h5>
+              <br>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-10 mr-auto ml-auto">
+              <form class="form-inline" [formGroup]="selicForm" (ngSubmit)="buscar()">
+                  <label class="my-1 mr-2" for="ano">Ano</label>
+                  <select class="custom-select my-1 mr-sm-2" id="ano" formControlName="anosControl">
+                      <option *ngFor="let ano of anos" [value]="ano">{{ano}}</option>
+                  </select>
+
+                  <label class="my-1 mr-2" for="mes">Mês</label>
+                  <select class="custom-select my-1 mr-sm-2" id="mes" formControlName="mesesControl">
+                      <option *ngFor="let mes of meses" [value]="mes.nome">{{mes.nome}}</option>
+                  </select>
+
+                  <button type="submit" class="btn btn-primary my-1" [disabled]="!selicForm.valid">Buscar</button>
+                </form>
+                <a class="btn btn-primary my-1" [routerLink]="['/taxaAnual', selicForm.value.anosControl]" >Taxa anual</a>
+          </div>
+      </div>
+      <br /><br />
+      <div class="row">
+          <div class="col-md-12">
+              <table class="table table-hover" *ngIf="taxas">
+                  <thead>
+                      <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Mês de referência</th>
+                          <th scope="col">Ano de referência</th>
+                          <th scope="col">Taxa Selic</th>
+                      </tr>
+                  </thead>
+                  <tbody  *ngIf="taxas.length>0">
+                      <tr *ngFor="let taxa of taxas; let i = index">
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{taxa.mes}}}</td>
+                          <td>{{taxa.ano}}}</td>
+                          <td>{{taxa.taxa}}</td>
+                      </tr>
+                  </tbody>
+                  <tbody  *ngIf="taxas.length==0">
+                    <tr>
+                        <td>Não há registros</td>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+  </div>
+</div>
