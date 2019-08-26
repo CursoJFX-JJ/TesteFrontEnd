@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SelicServiceService } from './selic-service.service';
+import { ClienteService } from './cliente.service';
 
-describe('SelicServiceService', () => {
+describe('ClienteService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SelicServiceService = TestBed.get(SelicServiceService);
+    const service: ClienteService = TestBed.get(ClienteService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,5 +1,5 @@
 {
-  "name": "simplic",
+  "name": "FC-Front",
   "version": "1.2.0",
   "license": "MIT",
   "scripts": {
@@ -34,7 +34,7 @@
     "popper.js": "1.14.4",
     "rxjs": "6.2.2",
     "rxjs-compat": "6.2.2",
-    "uri-js": "^4.2.2",
+    "rxjs-observe": "^2.1.4",
     "zone.js": "0.8.26"
   },
   "devDependencies": {

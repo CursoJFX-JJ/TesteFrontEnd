@@ -1,0 +1,125 @@
+<div class="nav-tabs-navigation">
+    <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+            <ngb-tab title="Transações">
+                <ng-template ngbTabContent>
+                    <div class="row following" id="Clientes">
+                        <div class="col-md-10 ml-auto mr-auto">
+                            <div class="row">
+                                <div class="col-md-3 mr-auto ml-auto" *ngIf="points">
+                                    <h6><small>Saldo</small><br />{{points.total - points.expirados - points.utilizados}}<br />
+                                    </h6>
+                                </div>
+                                <div class="col-md-3 mr-auto ml-auto">
+                                    <h6><small>Histórico</small><br />{{points.total}}<br /></h6>
+                                </div>
+                                <div class="col-md-3 mr-auto ml-auto">
+                                    <h6><small>Utilizados</small><br />{{points.utilizados}}<br /></h6>
+                                </div>
+                                <div class="col-md-3 mr-auto ml-auto">
+                                    <h6><small>Perdidos</small><br />{{points.expirados}}<br /></h6>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-10 mr-auto ml-auto">
+                                    <form class="form" [formGroup]="notaForm" (ngSubmit)="cadastrar()">
+
+                                        <div class="form-group">
+                                            <label class="my-1 mr-2" for="rs">Razão social</label>
+                                            <input type="text" class="form-control" placeholder="Digite a razão social"
+                                                id="rs" formControlName="razaoControl">
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group">
+                                            <label class="my-1 mr-2" for="nn">Nº da nota</label>
+                                            <input type="numero" class="form-control"
+                                                placeholder="Digite o número da nota" id="nn"
+                                                formControlName="numeroControl">
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="input-group date"
+                                                [ngClass]="{'input-group-focus':focus===true}">
+                                                <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                    formControlName="dataControl" ngbDatepicker #d="ngbDatepicker"
+                                                    (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                                                <div class="input-group-append">
+                                                    <span class="glyphicon glyphicon-calendar input-group-text">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+
+                                            <label class="my-1 mr-2" for="dp">Forma de pagamento</label>
+                                            <select class="custom-select my-1 mr-sm-2" id="fp"
+                                                formControlName="pagamentoControl">
+                                                <option *ngFor="let p of pagamentos" [value]="p.nome">{{p.nome}}
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="my-1 mr-2" for="v">Valor</label>
+
+                                            <input type="number" class="form-control"
+                                                placeholder="Digite o valor da nota" id="v"
+                                                formControlName="valorControl">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary my-1"
+                                            [disabled]="!notaForm.valid">Cadastrar</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-hover" *ngIf="clientDetail">
+                                        <thead>
+                                            <tr style="color: #fff">
+                                                <th scope="col">LOJA</th>
+                                                <th scope="col">Nº DA NOTA</th>
+                                                <th scope="col">DATA DA NOTA</th>
+                                                <th scope="col">FORMA DE PAGAMENTO</th>
+                                                <th scope="col">VALOR</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="color: #fff" *ngFor="let n of notas; let i = index">
+                                                <td>{{n.razaoControl}}</td>
+                                                <td>{{n.numeroControl}}</td>
+                                                <td>{{n.dataControl}}</td>
+                                                <td>{{n.pagamentoControl}}</td>
+                                                <td>{{n.valorControl}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Benefícios">
+                <ng-template ngbTabContent>
+                    <h3 class="text-muted">Nenhum cliente selecionado :(</h3>
+                    <br>
+                    <button class="btn btn-warning btn-round">Selecionar cliente</button>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Histórico">
+                <ng-template ngbTabContent>
+                    <h3 class="text-muted">Nenhum cliente selecionado :(</h3>
+                    <br>
+                    <button class="btn btn-warning btn-round">Selecionar cliente</button>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

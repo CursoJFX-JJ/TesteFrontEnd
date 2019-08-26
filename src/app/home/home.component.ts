@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { SideMenuComponent } from 'app/sidemenu/sidemenu.component';
+
 
 @Component({
     selector: 'app-home',
@@ -13,12 +18,20 @@ export class HomeComponent implements OnInit {
         right: false
     };
 
+    clientDetail;
+    @Output() messageEvent = new EventEmitter();;
+
+
     focus;
     focus1;
-    constructor() { }
+    constructor(public afAuth: AngularFireAuth) { }
 
-    ngOnInit() {
+    ngOnInit() { }
 
+    receiveMessage($event) {
+        this.messageEvent.emit($event);
+        this.clientDetail = $event;
+        console.log(this.clientDetail);
+        
     }
-
 }

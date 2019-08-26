@@ -1,19 +1,31 @@
 <div class="wrapper">
-    <div class="page-header section-dark" style="background-image: url('assets/img/back.png')">
-        <div class="filter"></div>
-        <div class="content-center">
+    <div class="main">
+        <div class="section section-dark section-nucleo-icons">
             <div class="container">
-                <div class="motto text-center">
-                    <h1>Estimativa Selic</h1>
-                    <h3>A ANBIMA está iniciando um novo projeto em que pretende disponibilizar ao mercado uma API para
-                        consultar os cálculos de estimativa Selic. Para o público interno o projeto prevê a consulta
-                        dessas mesmas informações em sistema. </h3>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h2 class="title">O Teste</h2><br />
+                        <p class="description">
+                            Esse é o nosso desafio para você! O objetivo é avaliar o seu conhecimento e habilidades nos
+                            seguintes quesitos:
+
+                            - Estilização (stylesheet/css)
+                            - Javascript (Angular)
+                            - Testes
+                        </p><br />
+                    </div>
                     <br />
-                    <a class="btn btn-outline-neutral btn-round" href="#main"><i class="fa fa-play"></i>Começar</a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <app-side (messageEvent)="receiveMessage($event)"></app-side>
+                    </div>
+                    <br />
+                    <div class="col-lg-6 col-md-12">
+                        <app-detalhes [clientDetail]="clientDetail"></app-detalhes>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="main">
-        <app-taxa-mensal></app-taxa-mensal>
-    </div>
+</div>

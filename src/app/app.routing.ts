@@ -1,28 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { TaxaAnualComponent } from './taxa-anual/taxa-anual.component';
-import { TaxaAnualResolverService } from './resolvers/taxa-anual-resolver.service';
+import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { HomeModule } from './home/home.module';
 
 const routes: Routes = [
     { path: 'home',             component: HomeComponent },
-    { path: 'taxaAnual/:ano',    component: TaxaAnualComponent, resolve: {
-      calculo: TaxaAnualResolverService
-    } },
+    { path: 'detalhes',     loadChildren: loadSessionHomeModule },
+    // { path: 'eventos',     component: ProfileComponent },
+    // { path: 'grapper',           component: SignupComponent },
+    // { path: 'noticias',          component: LandingComponent },
+    { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
+
+export function loadSessionHomeModule() {
+  return HomeModule
+}
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     RouterModule.forRoot(routes)
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
 })
 export class AppRoutingModule { }
